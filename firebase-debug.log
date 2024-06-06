@@ -1,0 +1,42 @@
+[debug] [2024-06-06T09:18:33.827Z] ----------------------------------------------------------------------
+[debug] [2024-06-06T09:18:33.830Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\hitmachut\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy
+[debug] [2024-06-06T09:18:33.830Z] CLI Version:   13.11.0
+[debug] [2024-06-06T09:18:33.830Z] Platform:      win32
+[debug] [2024-06-06T09:18:33.830Z] Node Version:  v20.10.0
+[debug] [2024-06-06T09:18:33.831Z] Time:          Thu Jun 06 2024 12:18:33 GMT+0300 (שעון ישראל (קיץ))
+[debug] [2024-06-06T09:18:33.831Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2024-06-06T09:18:33.914Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2024-06-06T09:18:33.915Z] > authorizing via signed-in user (bkastner669@gmail.com)
+[debug] [2024-06-06T09:18:33.915Z] [iam] checking project batyakastner-c619e for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2024-06-06T09:18:33.917Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/batyakastner-c619e:testIamPermissions [none]
+[debug] [2024-06-06T09:18:33.917Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/batyakastner-c619e:testIamPermissions x-goog-quota-user=projects/batyakastner-c619e
+[debug] [2024-06-06T09:18:33.917Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/batyakastner-c619e:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2024-06-06T09:18:35.265Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/batyakastner-c619e:testIamPermissions 418
+[debug] [2024-06-06T09:18:35.265Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/batyakastner-c619e:testIamPermissions {"blockByNetFree":true,"blockUrl":"https://netfree.link/block/#%7B%22block%22%3A%22default-block%22%2C%22sourceStatusCode%22%3A200%7D"}
+[debug] [2024-06-06T09:18:35.266Z] [iam] error while checking permissions, command may fail: FirebaseError: HTTP Error: 418, Unknown Error
+[debug] [2024-06-06T09:18:35.266Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/batyakastner-c619e [none]
+[debug] [2024-06-06T09:18:35.764Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/batyakastner-c619e 418
+[debug] [2024-06-06T09:18:35.764Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/batyakastner-c619e {"blockByNetFree":true,"blockUrl":"https://netfree.link/block/#%7B%22block%22%3A%22default-block%22%2C%22sourceStatusCode%22%3A200%7D"}
+[debug] [2024-06-06T09:18:35.765Z] HTTP Error: 418, Unknown Error
+[debug] [2024-06-06T09:18:35.768Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/batyakastner-c619e [none]
+[debug] [2024-06-06T09:18:36.070Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/batyakastner-c619e 418
+[debug] [2024-06-06T09:18:36.070Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/batyakastner-c619e {"blockByNetFree":true,"blockUrl":"https://netfree.link/block/#%7B%22block%22%3A%22default-block%22%2C%22sourceStatusCode%22%3A200%7D"}
+[debug] [2024-06-06T09:18:36.070Z] HTTP Error: 418, Unknown Error
+[info] 
+   Thank you for trying our early preview of Angular support on Firebase Hosting.
+   During the preview, support is best-effort and breaking changes can be expected. Proceed with caution.
+
+   Documentation: https://firebase.google.com/docs/hosting/frameworks/angular
+   File a bug: https://github.com/firebase/firebase-tools/issues/new?template=bug_report.md
+   Submit a feature request: https://github.com/firebase/firebase-tools/issues/new?template=feature_request.md
+
+   We'd love to learn from you. Express your interest in helping us shape the future of Firebase Hosting: https://goo.gle/41enW5X
+
+[debug] [2024-06-06T09:20:20.980Z] Error: Command failed: npm i --omit dev --no-audit
+    at checkExecSyncError (node:child_process:890:11)
+    at execSync (node:child_process:962:15)
+    at prepareFrameworks (C:\Users\hitmachut\AppData\Roaming\npm\node_modules\firebase-tools\lib\frameworks\index.js:375:42)
+    at async deploy (C:\Users\hitmachut\AppData\Roaming\npm\node_modules\firebase-tools\lib\deploy\index.js:57:13)
+[error] 
+[error] Error: An unexpected error has occurred.

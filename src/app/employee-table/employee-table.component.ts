@@ -2,7 +2,6 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { Employee } from '../Employee';
 import { EmployeeService } from '../employee.service';
 import { CommonModule } from '@angular/common';
-import { EmpFilter } from '../empfilter';
 import {MatTableDataSource, MatTableModule} from '@angular/material/table';
 import {MatInputModule} from '@angular/material/input';
 import {MatSelectModule} from '@angular/material/select';
@@ -45,7 +44,7 @@ constructor(private employeeService: EmployeeService,private dialog: MatDialog,p
   searchText: string = '';
   isMale!: boolean;
   roles: any;
-  empFilters: EmpFilter[]=[];
+
   
   defaultValue = "All";
   filterValue: string = '';
