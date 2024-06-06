@@ -1,0 +1,40 @@
+<div class="input-group mb-3">
+    <input type="text" [(ngModel)]="searchText" class="form-control" placeholder="Search.." (input)="filterEmployeesList()">
+    <div class="input-group-append">
+      <button class="btn btn-outline-secondary" type="button">
+        <i class="fa fa-search"></i>
+      </button>
+    </div>
+  </div>
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+  <ng-container  [matColumnDef]="column" *ngFor="let column of displayedColumns">
+    <th mat-header-cell *matHeaderCellDef color="red">
+     
+      <ng-container [ngSwitch]="column">
+        <mat-icon *ngSwitchCase="'tz'">fingerprint</mat-icon>
+        <mat-icon *ngSwitchCase="'firstName'">person</mat-icon>
+        <mat-icon *ngSwitchCase="'lastName'">person_outline</mat-icon>
+        <mat-icon *ngSwitchCase="'startDate'">calendar_month</mat-icon>
+      </ng-container> {{ column }}
+    </th>
+    <td mat-cell *matCellDef="let emp">{{ emp[column] }}</td>
+  </ng-container>
+  <ng-container matColumnDef="actions">
+    <th mat-header-cell *matHeaderCellDef><mat-icon>settings</mat-icon> Actions </th>
+    <td mat-cell *matCellDef="let row">
+      <button mat-icon-button (click)="onEdit(row)">
+        <mat-icon color="primary">edit</mat-icon>
+      </button>
+      <button mat-icon-button (click)="onDelete(row)">
+        <mat-icon color="warn">delete</mat-icon>
+      </button>
+    </td>
+
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns.concat('actions')"></tr>
+  <tr mat-row *matRowDef="let emprow; columns: displayedColumns.concat('actions')"></tr>
+</table>
+
+<!-- </div> -->

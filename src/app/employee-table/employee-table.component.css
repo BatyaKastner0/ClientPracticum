@@ -1,0 +1,21 @@
+table {
+    width: 100%;
+}
+
+.full-width {
+    font-size: 14px;
+    width: 100%;
+}
+.input-group{
+    width: 90%;
+    margin: 0 auto;
+}
+  .btn-transparent {
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    outline: none;
+  }
+  .mr-5 {
+    margin-right: 75px;
+  }

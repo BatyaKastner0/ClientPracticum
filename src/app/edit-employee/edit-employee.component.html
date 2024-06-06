@@ -1,0 +1,130 @@
+<div class="container">
+  <div class="form-wrapper">
+
+    <form [formGroup]="employeeForm" (ngSubmit)="saveChanges()" fxLayout="column" fxLayoutGap="16px">
+      <mat-form-field class="example-form-field">
+        <mat-label>id</mat-label>
+        <input matInput type="text" formControlName="tz" required pattern="[0-9]{9}">
+        @if (employeeForm.controls['tz'].value) {
+        <button matSuffix mat-icon-button aria-label="Clear" (click)="employeeForm.controls['tz'].reset()">
+          <mat-icon class="">close</mat-icon>
+        </button>
+        }
+        <mat-error *ngIf="employeeForm.get('tz')?.hasError('required')">tz is required</mat-error>
+        <mat-error *ngIf="employeeForm.get('tz')?.hasError('pattern')">The tz must be 9 digits</mat-error>
+      </mat-form-field>
+      <mat-form-field class="example-form-field">
+        <mat-label>firstName</mat-label>
+        <input matInput type="text" formControlName="firstName" required>
+        @if (employeeForm.controls['firstName'].value) {
+        <button matSuffix mat-icon-button aria-label="Clear" (click)="employeeForm.controls['firstName'].reset()">
+          <mat-icon>close</mat-icon>
+        </button>
+        }
+        <mat-error *ngIf="employeeForm.get('firstName')?.hasError('required')">firstName is required</mat-error>
+      </mat-form-field>
+      <mat-form-field class="example-form-field">
+        <mat-label>lastName</mat-label>
+        <input matInput type="text" formControlName="lastName" required>
+        @if (employeeForm.controls['lastName'].value) {
+        <button matSuffix mat-icon-button aria-label="Clear" (click)="employeeForm.controls['lastName'].reset()">
+          <mat-icon>close</mat-icon>
+        </button>
+        }  <mat-error
+        *ngIf="employeeForm.get('lastName')?.hasError('required')">lastName is
+        required</mat-error>
+      </mat-form-field>
+      <div>
+        <label>gender</label>
+        <mat-radio-group formControlName="isMale">
+          <mat-radio-button value="true">male</mat-radio-button>
+          <mat-radio-button value="false">female</mat-radio-button>
+        </mat-radio-group>
+      </div>
+      <mat-error *ngIf="employeeForm.get('isMale')?.hasError('required') && employeeForm.get('isMale').dirty">choosing
+        gender is required</mat-error>
+      <mat-form-field class="example-form-field">
+        <mat-label>date born</mat-label>
+        <input matInput [matDatepicker]="picker1" formControlName="dateBorn">
+        <mat-datepicker-toggle matIconSuffix [for]="picker1"></mat-datepicker-toggle>
+        <mat-datepicker #picker1></mat-datepicker>
+        <mat-error *ngIf="employeeForm.get('dateBorn')?.hasError('underEighteen')" >
+          date of birth must be at least 18 years ago
+        </mat-error>
+        <mat-error *ngIf="employeeForm.get('dateBorn')?.hasError('required')" >
+          date of birth is required
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="example-form-field">
+        <mat-label>start date</mat-label>
+        <input matInput [matDatepicker]="picker2" formControlName="startDate">
+        <mat-datepicker-toggle matIconSuffix [for]="picker2"></mat-datepicker-toggle>
+        <mat-datepicker #picker2></mat-datepicker>
+             <mat-error
+        *ngIf="employeeForm.get('startDate').errors?.['required']">startDate is
+        required</mat-error>
+      </mat-form-field>
+ 
+      <div formArrayName="roles" class="example-form-field">
+        <div *ngFor="let role of employeeForm.get('roles')['controls']; let i = index;">
+          <div>
+            <mat-expansion-panel>
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  role {{i + 1}}
+                </mat-panel-title>
+              </mat-expansion-panel-header>
+
+              <div [formGroupName]="i">
+                <div class="form-row">
+                  <mat-select formControlName="roleId" placeholder="roleName"
+                    (selectionChange)="updateRolesOptions($event)">
+                    <mat-option *ngFor="let option of this.roleNames" [value]="option.id" [disabled]="option.disabled">
+                      {{ option.name }}
+                    </mat-option>
+                  </mat-select>
+
+                  <mat-error *ngIf="role.get('roleId').touched && role.get('roleId').invalid">
+                    role name is required
+                  </mat-error>
+                  <label for="isManagerial">is managerial? </label>
+                  <input type="checkbox" formControlName="isManagerial">
+
+                </div>
+                <mat-form-field class="example-form-field" class="form-row">
+                  <mat-label>role start date</mat-label>
+                  <input matInput [matDatepicker]="picker3" formControlName="startDate">
+                  <mat-datepicker-toggle matIconSuffix [for]="picker3"></mat-datepicker-toggle>
+                  <mat-datepicker #picker3></mat-datepicker>
+                       <mat-error
+                  *ngIf="employeeForm.get('startDate').errors?.['required']">startDate
+                  is required</mat-error>
+                </mat-form-field>
+        
+
+                <div *ngIf="role.get('startDate').errors?.entryDateInvalid" class="text-danger">
+                  Start date must be later than or equal to the employee's start date
+                </div>
+
+
+                <button mat-raised-button color="primary" type="button" class="btn" [disabled]="!canRemoveRole()"
+                  (click)="removeRole(i)">
+                  <mat-icon>delete</mat-icon> delete
+                </button>
+              </div>
+            </mat-expansion-panel>
+
+          </div>
+        </div>
+      </div>
+      <button mat-raised-button color="primary" type="button" (click)="addRole()">
+        <mat-icon>add</mat-icon> add-role
+      </button>
+      <br>
+      <button mat-raised-button color="primary" type="submit" class="example-form-field">
+        <mat-icon>check</mat-icon> save
+      </button>
+    </form>
+
+  </div>
+</div>

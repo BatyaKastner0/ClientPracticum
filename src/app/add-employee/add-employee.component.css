@@ -1,0 +1,67 @@
+.example-form-field {
+    width:40%;
+    margin-top: 1%;
+  }
+form {
+  align-items: center; 
+  background-color: lightblue;
+  display: flex;
+  height: 100vh;
+  width:60vw;
+  flex-direction: column;
+  overflow: auto; 
+}
+mat-select{width:30%;}
+mat-card {
+width:100vh;
+height:100vh;
+text-align: center;
+}
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+mat-toolbar {
+  height: auto;
+  font-size: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+mat-icon {
+  font-size: 48px;
+  height: 48px;
+  width: 48px;
+}
+.form-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 10px;
+}
+
+.form-row {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.form-field {
+  flex: 1;
+}
+.btn{
+  display: flex;
+justify-content: center;
+  align-items: center;
+}
+.small-icon {
+  font-size: 16px; 
+}
+body {
+  font-family: 'Aharoni', sans-serif;
+}

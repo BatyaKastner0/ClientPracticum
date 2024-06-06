@@ -1,0 +1,22 @@
+.icon-large {
+    font-size:30px;
+  }
+  .mat-toolbar {
+    height:80px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+  }
+  .btn-transparent {
+    background-color: transparent;
+  }
+  .logo{
+    color: black;
+    height:40px;
+    width: 40px;
+  }
+  .p{text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    color: black;
+  }
